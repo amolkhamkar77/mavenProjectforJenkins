@@ -15,7 +15,7 @@ public class BaseClass
 	{	
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
-		driver.get(UtilityClass.getPFData("URL"));
+		driver.get(UtilityClass.getPFData("URL")); // get URL from Property file PF
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 	}
 

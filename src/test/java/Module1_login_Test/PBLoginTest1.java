@@ -51,7 +51,7 @@ public class PBLoginTest1 extends BaseClass
 		mobNum.clickPBMobNumPageSignInWithPwd();
 		pwd.inpPBPwdPagePWD(UtilityClass.getPFData("pwd"));
 		pwd.clickPBPwdPageSignIn();
-		Thread.sleep(3000);
+		Thread.sleep(3000);  
 	}
 	
 	
@@ -67,7 +67,7 @@ public class PBLoginTest1 extends BaseClass
 		String actFullName=profile.getPBProfilePageFullName();
 		String expFullName=UtilityClass.getTestData(0, 0);
 		Assert.assertEquals(actFullName, expFullName, "Failed: both names are diff- ");
-	}
+	}    // change excel sheet name of jan batch
 	
 	@AfterMethod
 	public void name(ITestResult s1) throws IOException 

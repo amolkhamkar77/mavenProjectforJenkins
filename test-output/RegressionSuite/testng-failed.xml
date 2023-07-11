@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [RegressionSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Module1(failed)">
+    <classes>
+      <class name="Module1_login_Test.PBLoginTest1">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="name"/>
+          <include name="loginToApp"/>
+          <include name="verifyFullName"/>
+          <include name="openBrowser"/>
+        </methods>
+      </class> <!-- Module1_login_Test.PBLoginTest1 -->
+    </classes>
+  </test> <!-- Module1(failed) -->
+  <test thread-count="5" name="Module3(failed)">
+    <classes>
+      <class name="Module1_login_Test.PBLoginTest1">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="name"/>
+          <include name="loginToApp"/>
+          <include name="verifyFullName"/>
+          <include name="openBrowser"/>
+        </methods>
+      </class> <!-- Module1_login_Test.PBLoginTest1 -->
+    </classes>
+  </test> <!-- Module3(failed) -->
+  <test thread-count="5" name="Module4(failed)">
+    <classes>
+      <class name="Module1_login_Test.PBLoginTest1">
+        <methods>
+          <include name="closeBrowser"/>
+          <include name="name"/>
+          <include name="loginToApp"/>
+          <include name="verifyFullName"/>
+          <include name="openBrowser"/>
+        </methods>
+      </class> <!-- Module1_login_Test.PBLoginTest1 -->
+    </classes>
+  </test> <!-- Module4(failed) -->
+</suite> <!-- Failed suite [RegressionSuite] -->
