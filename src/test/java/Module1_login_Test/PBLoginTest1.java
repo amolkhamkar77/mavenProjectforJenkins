@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.apache.poi.EncryptedDocumentException;
 import org.testng.Assert;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -13,8 +14,11 @@ import org.testng.annotations.Test;
 
 import LibraryFiles.BaseClass;
 import LibraryFiles.UtilityClass;
+import Module1_Login.PBCountryCodeSelect;
+import Module1_Login.PBHomeButton;
 import Module1_Login.PBHomePage;
 import Module1_Login.PBLoginPage;
+import Module1_Login.PBLogoutPage;
 import Module1_Login.PBMobNumPage;
 import Module1_Login.PBMyAccPage;
 import Module1_Login.PBProfilePage;
@@ -29,24 +33,30 @@ public class PBLoginTest1 extends BaseClass
 	PBMyAccPage myAcc;
 	PBProfilePage profile;
 	int TCID;
-	
+	PBLogoutPage logout1;
+	PBHomeButton hombtn;
 	
 	@BeforeClass
 	public void openBrowser() throws EncryptedDocumentException, IOException
 	{
-		initializeBrowser();
+		initializeBrowser(); // BaseClass method calling--> only method name bcoz we extnd base class
 		 login=new PBLoginPage(driver);
 		 mobNum=new PBMobNumPage(driver);
 		 pwd=new PBPwdPage(driver);
 		 home=new PBHomePage(driver);
 		 myAcc=new PBMyAccPage(driver);
 		 profile=new PBProfilePage(driver);
+		logout1 = new PBLogoutPage(driver);
+		hombtn= new PBHomeButton(driver);
+		
 	}
 	
 	@BeforeMethod
 	public void loginToApp() throws InterruptedException, EncryptedDocumentException, IOException
 	{
 		login.clickPBLoginPageSignIN();
+		
+		
 		mobNum.inpPBMobNumPageMobNum(UtilityClass.getPFData("mobNum"));
 		mobNum.clickPBMobNumPageSignInWithPwd();
 		pwd.inpPBPwdPagePWD(UtilityClass.getPFData("pwd"));
@@ -65,9 +75,10 @@ public class PBLoginTest1 extends BaseClass
 		profile.switchToSwitchChildWindow();
 		
 		String actFullName=profile.getPBProfilePageFullName();
-		String expFullName=UtilityClass.getTestData(0, 0);
+		String expFullName=UtilityClass.getTestData(1, 0);
+		
 		Assert.assertEquals(actFullName, expFullName, "Failed: both names are diff- ");
-	}    // change excel sheet name of jan batch
+	}    // check excel sheet Expected name of Profile is Amol Khamkar
 	
 	@AfterMethod
 	public void name(ITestResult s1) throws IOException 
@@ -76,13 +87,18 @@ public class PBLoginTest1 extends BaseClass
 		{
 			UtilityClass.captureSS(driver, TCID);
 		}		
+	
+		logout1.clickOnLogoutbtn();
+		Reporter.log("Logout Successfully",true);
+		//click on home button
+		hombtn.clickOnPBHomebtn();
 	}
 	
 	
 	@AfterClass
 	public void closeBrowser()
 	{
-		driver.quit();
+		//driver.quit();
 	}
 
 }

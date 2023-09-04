@@ -22,8 +22,8 @@ public class UtilityClass
 	//need to pass 2 inputs: 1-rowIndex, 2-colIndex
 	public static String getTestData(int rowIndex, int colIndex) throws EncryptedDocumentException, IOException 
 	{
-		FileInputStream file=new FileInputStream("C:\\Users\\Amol Khamkar\\git\\SeleniumRevisionMaven1\\TestData\\SeleniumRevisionC'wad.xlsx");
-		Sheet sh = WorkbookFactory.create(file).getSheet("DDF");
+		FileInputStream file=new FileInputStream("D:\\Java Classes 2018\\Revision\\Automation by Sanjay sir\\SheetUsedInProgram1.xlsx");
+		Sheet sh = WorkbookFactory.create(file).getSheet("Sheet3");
 		
 		String value = sh.getRow(rowIndex).getCell(colIndex).getStringCellValue();
 		return value;
@@ -35,7 +35,7 @@ public class UtilityClass
 	{
 		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		File dest=new File("C:\\Users\\Amol Khamkar\\git\\SeleniumRevisionMaven1\\FailedTCSS\\TestCaseID"+TCID+".png");
-		FileUtils.copyFile(src, dest);                      //TestCaseID+TCID is screenshot name
+		FileUtils.copyFile(src, dest);                      //TestCaseID+TCID --> is screenshot name
 	}                      // upto FailedTcss is Folder location of screen shot storage
 	
 	
